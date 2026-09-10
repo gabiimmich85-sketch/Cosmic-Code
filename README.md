@@ -29,4 +29,4 @@ Um jogo de nave 2D estilo Arcade focado em sobrevivência, reflexos rápidos e p
 
 1. Clone este repositório no seu terminal:
    ```bash
-  git clone https://github.com/gabiimmich85-sketch/Cosmic-Code.git
+   git clone https://github.com/gabiimmich85-sketch/Cosmic-Code.git
