@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cni35a0yjswe3"]
+
+[ext_resource type="Script" uid="uid://bb5s4ab7lkkjw" path="res://Vida.cs" id="1_u1a28"]
+[ext_resource type="Texture2D" uid="uid://y3v1d74xs17" path="res://SpaceShooterAssetPack_Miscellaneous.png" id="2_738fi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twrkk"]
+radius = 4.0
+height = 9.0
+
+[node name="Vida" type="Area2D" unique_id=85190542]
+z_index = 10
+scale = Vector2(2, 2)
+script = ExtResource("1_u1a28")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=636432849]
+scale = Vector2(2, 2)
+texture = ExtResource("2_738fi")
+region_enabled = true
+region_rect = Rect2(16.164684, -0.49497318, 7.789484, 8.459887)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864160301]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_twrkk")

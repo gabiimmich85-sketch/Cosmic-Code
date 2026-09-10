@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dwwcl5hbp2han"]
+
+[ext_resource type="Script" uid="uid://cjkda0phebuw4" path="res://NaveInimiga.cs" id="1_mx4we"]
+[ext_resource type="Texture2D" uid="uid://ccltm7tx5rinb" path="res://SpaceShooterAssetPack_Ships.png" id="2_50hu0"]
+[ext_resource type="PackedScene" uid="uid://c4wgj7cj0moce" path="res://Explosao.tscn" id="2_khcxv"]
+[ext_resource type="PackedScene" uid="uid://btfi1r3rsasqt" path="res://PowerUpTiro.tscn" id="3_khcxv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltl67"]
+radius = 40.0
+height = 80.0
+
+[node name="NaveInimiga" type="Area2D" unique_id=1764951097]
+script = ExtResource("1_mx4we")
+CenaDeExplosao = ExtResource("2_khcxv")
+CenaPowerUp = ExtResource("3_khcxv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1638559627]
+scale = Vector2(5.1875, 5.3)
+texture = ExtResource("2_50hu0")
+region_enabled = true
+region_rect = Rect2(31.932442, 48.1039, 16.023972, 15.816906)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534342720]
+shape = SubResource("CapsuleShape2D_ltl67")

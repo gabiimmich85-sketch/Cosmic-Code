@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bukte1uib8bxj"]
+
+[ext_resource type="Script" uid="uid://dqjq5wr5phxaj" path="res://Tiro.cs" id="1_38p3x"]
+[ext_resource type="Texture2D" uid="uid://psjmu8c770y" path="res://SpaceShooterAssetPack_Projectiles.png" id="2_38p3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twrkk"]
+size = Vector2(7, 18)
+
+[node name="Tiro" type="Node2D" unique_id=1326139725]
+
+[node name="Tiro" type="Area2D" parent="." unique_id=1232036187]
+script = ExtResource("1_38p3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tiro" unique_id=1838020184]
+position = Vector2(0.9999995, -2)
+scale = Vector2(3.140625, 2.7636716)
+texture = ExtResource("2_38p3x")
+region_enabled = true
+region_rect = Rect2(-0.41619873, 7.7289352, 8.197121, 8.658665)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiro" unique_id=1681659394]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_twrkk")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://btfi1r3rsasqt"]
+
+[ext_resource type="Script" uid="uid://fhysqfvb4h43" path="res://PowerUpTiro.cs" id="1_g7tay"]
+[ext_resource type="Texture2D" uid="uid://y3v1d74xs17" path="res://SpaceShooterAssetPack_Miscellaneous.png" id="2_nac2i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twrkk"]
+height = 28.0
+
+[node name="PowerUpTiro" type="Area2D" unique_id=1675764233]
+script = ExtResource("1_g7tay")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=105014575]
+scale = Vector2(5.2500005, 5.05)
+texture = ExtResource("2_nac2i")
+region_enabled = true
+region_rect = Rect2(1.6204844, 25.71902, 5.894183, 5.61681)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1536585120]
+shape = SubResource("CapsuleShape2D_twrkk")

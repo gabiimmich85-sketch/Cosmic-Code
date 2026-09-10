@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dgetd0y64sh8v"]
+
+[ext_resource type="Script" uid="uid://b0fce5nouuxxv" path="res://Inimigo.cs" id="1_3j1he"]
+[ext_resource type="PackedScene" uid="uid://c4wgj7cj0moce" path="res://Explosao.tscn" id="2_7ux7f"]
+[ext_resource type="Texture2D" uid="uid://y3v1d74xs17" path="res://SpaceShooterAssetPack_Miscellaneous.png" id="3_7ux7f"]
+[ext_resource type="PackedScene" uid="uid://cni35a0yjswe3" path="res://Vida.tscn" id="3_78bum"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78bum"]
+radius = 58.034473
+
+[node name="Inimigo" type="Area2D" unique_id=1829183704]
+script = ExtResource("1_3j1he")
+CenaDeExplosao = ExtResource("2_7ux7f")
+CenaVida = ExtResource("3_78bum")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=404657485]
+position = Vector2(1.9999981, 3.999998)
+scale = Vector2(8.571428, 8.133333)
+texture = ExtResource("3_7ux7f")
+region_enabled = true
+region_rect = Rect2(17.097359, 17.149385, 14.715721, 15.860273)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210977322]
+position = Vector2(-2, -5)
+shape = SubResource("CircleShape2D_78bum")

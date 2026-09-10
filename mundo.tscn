@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://ddh0xh6yw6os0"]
+
+[ext_resource type="Script" uid="uid://drj8vs6aqene1" path="res://Mundo.cs" id="1_5ckkb"]
+[ext_resource type="Script" uid="uid://d234dmy0y0i3h" path="res://Player.cs" id="1_lgngo"]
+[ext_resource type="Script" uid="uid://dq1qml2e2sbxr" path="res://FundoEstrelado.cs" id="2_0crsg"]
+[ext_resource type="Texture2D" uid="uid://b7uduc0psbpnd" path="res://background_1.png" id="2_57gmc"]
+[ext_resource type="PackedScene" uid="uid://bukte1uib8bxj" path="res://Tiro.tscn" id="2_otwa2"]
+[ext_resource type="Texture2D" uid="uid://jjdslgtg0kbq" path="res://background_2.png" id="3_0crsg"]
+[ext_resource type="Texture2D" uid="uid://d3jwe20kvw3q8" path="res://background_3.png" id="4_5g5eo"]
+[ext_resource type="PackedScene" uid="uid://dgetd0y64sh8v" path="res://Inimigo.tscn" id="4_otwa2"]
+[ext_resource type="Texture2D" uid="uid://ccltm7tx5rinb" path="res://SpaceShooterAssetPack_Ships.png" id="4_t8jxu"]
+[ext_resource type="AudioStream" uid="uid://blobwjwmud17u" path="res://laser4.ogg" id="5_2hh7m"]
+[ext_resource type="Script" uid="uid://cfw3krx5q32ey" path="res://GeradorInimigos.cs" id="5_aou4a"]
+[ext_resource type="Texture2D" uid="uid://dq5t8gkrf0h43" path="res://background_4.png" id="5_lwdvv"]
+[ext_resource type="FontFile" uid="uid://uaxwvtu0fq76" path="res://upheavtt.ttf" id="8_t8jxu"]
+[ext_resource type="AudioStream" uid="uid://ld6wqqhkrx7r" path="res://laser8.ogg" id="12_8wx08"]
+[ext_resource type="Script" uid="uid://cgi46ee5tkeir" path="res://Shake.cs" id="14_5g5eo"]
+[ext_resource type="PackedScene" uid="uid://dwwcl5hbp2han" path="res://NaveInimiga.tscn" id="15_lwdvv"]
+[ext_resource type="PackedScene" uid="uid://btfi1r3rsasqt" path="res://PowerUpTiro.tscn" id="16_qobow"]
+[ext_resource type="AudioStream" uid="uid://bh38fhdv3x6in" path="res://Jeremy Blake - Powerup! ♫ NO COPYRIGHT 8-bit Music - Free Music (youtube).mp3" id="17_744hw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvlea"]
+radius = 12.0
+height = 66.0
+
+[node name="Mundo" type="Node2D" unique_id=904348951 node_paths=PackedStringArray("UiTextoVida")]
+script = ExtResource("1_5ckkb")
+UiTextoVida = NodePath("TextoVida")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=183446173]
+position = Vector2(577, 325)
+script = ExtResource("14_5g5eo")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1023083031]
+script = ExtResource("2_0crsg")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=975845988]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(0, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1744130580]
+scale = Vector2(4.5234375, 2.924107)
+texture = ExtResource("2_57gmc")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1235310795]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(0, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1264414156]
+scale = Vector2(4.5078125, 2.9330356)
+texture = ExtResource("3_0crsg")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=500863469]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(0, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=2026538825]
+scale = Vector2(4.5078125, 2.888393)
+texture = ExtResource("4_5g5eo")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=942105101]
+motion_mirroring = Vector2(0, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=541523963]
+scale = Vector2(4.515625, 2.8794644)
+texture = ExtResource("5_lwdvv")
+centered = false
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2058191775 groups=["Jogador"]]
+position = Vector2(574, 500)
+script = ExtResource("1_lgngo")
+CenaDoTiro = ExtResource("2_otwa2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1895541213]
+rotation = -3.125198
+scale = Vector2(4.1764727, 4.374999)
+texture = ExtResource("4_t8jxu")
+region_enabled = true
+region_rect = Rect2(31.685549, 64.221466, 16.07504, 15.87796)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2080882088]
+shape = SubResource("CapsuleShape2D_rvlea")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player" unique_id=1360359710]
+stream = ExtResource("5_2hh7m")
+volume_db = -15.0
+
+[node name="TiroPowerUp" type="AudioStreamPlayer" parent="Player" unique_id=1363362726]
+stream = ExtResource("12_8wx08")
+volume_db = -15.0
+max_polyphony = 10
+
+[node name="Inimigo" parent="." unique_id=1829183704 instance=ExtResource("4_otwa2")]
+position = Vector2(564, -72)
+
+[node name="GeradorInimigos" type="Node2D" parent="." unique_id=998868701]
+script = ExtResource("5_aou4a")
+CenaInimigo = ExtResource("4_otwa2")
+CenaNaveInimiga = ExtResource("15_lwdvv")
+
+[node name="Timer" type="Timer" parent="GeradorInimigos" unique_id=601238929]
+wait_time = 2.0
+autostart = true
+
+[node name="Placar" type="CanvasLayer" parent="." unique_id=2141983955]
+
+[node name="Label" type="Label" parent="Placar" unique_id=1542738020]
+offset_left = 21.0
+offset_top = 15.0
+offset_right = 131.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("8_t8jxu")
+theme_override_font_sizes/font_size = 30
+text = "0
+"
+
+[node name="TextoVida" type="Label" parent="." unique_id=1741454536]
+offset_left = 1006.0
+offset_top = 18.0
+offset_right = 1130.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("8_t8jxu")
+theme_override_font_sizes/font_size = 30
+text = "VIDAS: 3"
+
+[node name="NaveInimiga" parent="." unique_id=1764951097 instance=ExtResource("15_lwdvv")]
+position = Vector2(421, -71)
+
+[node name="PowerUpTiro" parent="." unique_id=1675764233 instance=ExtResource("16_qobow")]
+position = Vector2(675, -41)
+
+[node name="MusicaFundo" type="AudioStreamPlayer" parent="." unique_id=1500165583]
+stream = ExtResource("17_744hw")
+volume_db = -15.0
+autoplay = true
+parameters/looping = false
